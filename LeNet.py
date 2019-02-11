@@ -1,3 +1,7 @@
+##Implementation of LeNet-5 in keras - 
+##[LeCun et al., 1998. Gradient based learning applied to document recognition]
+##Minor Changes done in the activation function: instead of Sigmoid, here uses the 'Relu' activation.
+
 import numpy as np 
 import matplotlib.pyplot as plt 
 import pandas as pd 
@@ -13,9 +17,6 @@ from keras.layers import Dense
 
 (x_train,y_train),(x_test,y_test) = fashion_mnist.load_data()
 
-# plt.imshow(x_train[0])
-# plt.show()
-
 x_train = np.array(x_train)
 x_test = np.array(x_test)
 
@@ -25,7 +26,6 @@ x_test = x_test.reshape(x_test.shape[0],28,28,1)
 ##padding the images by 2 pixels since LeNet Implementation is with input image of 32x32
 x_train = np.pad(x_train,((0,0),(2,2),(2,2),(0,0)),'constant')
 x_test = np.pad(x_test,((0,0),(2,2),(2,2),(0,0)),'constant')
-# print(x_test.shape)
 
 ##standardization
 mean_px = x_train.mean().astype(np.float32)
@@ -65,5 +65,5 @@ model.fit(x_train,y_train,batch_size=10,epochs=15)
 score = model.evaluate(x_test,y_test,batch_size=10)
 print('Test Loss=',score)
 
-#For the prediction of the input image
+##For the prediction of the input image
 # predictions = model.predict(x_test)
