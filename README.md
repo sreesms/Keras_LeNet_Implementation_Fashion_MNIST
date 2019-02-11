@@ -5,4 +5,3 @@ Original Paper : LeNet-5 [LeCun et al., 1998. Gradient based learning applied to
 
 The dataset can be found here: https://research.zalando.com/welcome/mission/research-projects/fashion-mnist/
 
-Minor Changes done in the activation function: instead of Sigmoid, here uses the 'Relu' activation.
